@@ -17,13 +17,23 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 //the pilot and co-pilot names should be strings and the fuel level and cargo mass should be numbers. To do this, complete the helper function in your scriptHelper.js called validateInput(). validateInput() should take in a string as a parameter and return "Empty", "Not a Number", or "Is a Number" as appropriate. Note: JavaScript has a built-in method called isNaN(value) that returns true if value is NaN and false if value is not NaN.
 function validateInput(testInput) {
-   
+    if (testInput === "") {
+        return "Empty";
+    } else if (isNaN(testInput)) {
+        return "Not a Number";
+    } else if (!isNaN(testInput)) {
+        return "Is a Number";
+    }
 }
-
-
 // you will use validateInput() to complete the formSubmission() function. formSubmission() will take in a document parameter and strings representing the pilot, co-pilot, fuel level, and cargo mass. Using the values in those strings and the document parameter for your HTML document, update the shuttle requirements as described below. Make sure to call your formSubmission() function at the appropriate time in your script.js file!
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-   
+    if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoMass) === "Empty") {
+        alert ("All fields are required!");
+    } else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number") {
+        alert ("Invalid Input - Please Enter Name");
+    } else if (validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
+        alert ("Invalid Input - Please Enter a Number")
+    }
 }
 
 //myFetch() has some of the code necessary for fetching planetary JSON, however, it is not complete. You need to add the URL and return response.json().
