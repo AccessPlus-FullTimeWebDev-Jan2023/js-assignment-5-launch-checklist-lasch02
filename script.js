@@ -1,4 +1,5 @@
 // Write your JavaScript code here!
+//***********Somewhere on this page, I need to call formSubmission() function!!!****************
 
 window.addEventListener("load", function() {
 
