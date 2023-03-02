@@ -27,31 +27,52 @@ function validateInput(testInput) {
 }
 // you will use validateInput() to complete the formSubmission() function. formSubmission() will take in a document parameter and strings representing the pilot, co-pilot, fuel level, and cargo mass. Using the values in those strings and the document parameter for your HTML document, update the shuttle requirements as described below. Make sure to call your formSubmission() function at the appropriate time in your script.js file!
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    let input = document.getElementByID("pilotStatus", "copilotStatus")
-    let list = 
-        <ol>
-        {`Pilot ${pilotName} status: ${pilotReady}.`} 
-        {`Copilot ${copilotName} status: ${copilotReady}.`}
-        If (fuelLevel < 10000) {
-            `${fuelLevel} too low for launch`;
-        } else if (fuelLevel >= 10000 ) {
-            ${fuelStatus}
-        }
-
-            
-        
-        </ol>
-      
-   
-   
-   
+    let pilotStatus = document.getElementById("pilotStatus");
+    let copilotStatus = document.getElementById("copilotStatus");
+    let fuelStatus = document.getElementById("fuelStatus");
+    let cargoStatus = document.getElementById("cargoStatus");
+    let launchStatus = document.getElementById("launchStatus");
+  
     if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoMass) === "Empty") {
         alert ("All fields are required!");
     } else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number") {
         alert ("Invalid Input - Please Enter Name");
     } else if (validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
         alert ("Invalid Input - Please Enter a Number")
+    } else {
+        pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+        copilotStatus.innerHTML = `Copilot ${copilot} is ready for launch`;
+        list.style.visibility = "visible";
+        if (fuelLevel < 10000 && cargoLevel > 10000) {
+            fuelStatus.innerHTML = `Fuel level too low for launch`;
+            launchStatus.innerHTML = `Shuttle Not Ready for launch`;
+            cargoStatus.innerHTML = `Cargo mass too heavy for launch`;
+            launchStatus.style.color = "#C7254E"; //red
+        }
+
+
+
     }
+
+
+
+        
+        // {`Pilot ${pilotName} status: ${pilotReady}.`} 
+        // {`Copilot ${copilotName} status: ${copilotReady}.`}
+        // If (fuelLevel < 10000) {
+        //     `${fuelLevel} too low for launch`;
+        // } else if (fuelLevel >= 10000 ) {
+        //     ${fuelStatus}
+        // }
+
+            
+        
+
+      
+   
+   
+   
+
 
 
     
