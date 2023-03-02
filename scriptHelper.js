@@ -27,6 +27,24 @@ function validateInput(testInput) {
 }
 // you will use validateInput() to complete the formSubmission() function. formSubmission() will take in a document parameter and strings representing the pilot, co-pilot, fuel level, and cargo mass. Using the values in those strings and the document parameter for your HTML document, update the shuttle requirements as described below. Make sure to call your formSubmission() function at the appropriate time in your script.js file!
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+    let input = document.getElementByID("pilotStatus", "copilotStatus")
+    let list = 
+        <ol>
+        {`Pilot ${pilotName} status: ${pilotReady}.`} 
+        {`Copilot ${copilotName} status: ${copilotReady}.`}
+        If (fuelLevel < 10000) {
+            `${fuelLevel} too low for launch`;
+        } else if (fuelLevel >= 10000 ) {
+            ${fuelStatus}
+        }
+
+            
+        
+        </ol>
+      
+   
+   
+   
     if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoMass) === "Empty") {
         alert ("All fields are required!");
     } else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number") {
@@ -34,6 +52,9 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     } else if (validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
         alert ("Invalid Input - Please Enter a Number")
     }
+
+
+    
 }
 
 //myFetch() has some of the code necessary for fetching planetary JSON, however, it is not complete. You need to add the URL and return response.json().
