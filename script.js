@@ -18,11 +18,17 @@ window.addEventListener("load", function() {
     addDestinationInfo(document, planet.name, planet.diameter, planet.star, planet.distance, plantet.moons, planet.image)
    })
    
+   let form = document.querySelector("launchForm");
    form.addEventListener("submit", function(event) {
    event.preventDefault();
 
-//    const form = document.getElementById("form");
-    }
+   pilotNameInput = form.pilotName['pilotName'];
+   
+   copilotNameInput = form.copilotName['copilotName'];
+   fuelLevelInput = form.fuelLevel['fuelLevel'];
+   cargoMassInput = form.cargoMass['cargoMass'];
+   
+    });
 
 
    
