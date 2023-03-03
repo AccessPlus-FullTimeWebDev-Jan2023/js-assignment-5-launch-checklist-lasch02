@@ -79,10 +79,11 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 //myFetch() has some of the code necessary for fetching planetary JSON, however, it is not complete. You need to add the URL and return response.json().
 async function myFetch() {
     let planetsReturned;
+    let json = [] //don't I need empty array to push planets to?
 
     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
         response.json().then(function(json){
-
+        planetsReturned.innerHTML 
         });
         });
 
@@ -91,6 +92,7 @@ async function myFetch() {
 
 //pickPlanet() takes in one argument: a list of planets. Using Math.random(), return one planet from the list with a randomly-selected index
 function pickPlanet(planets) {
+   randomPlanet = Math.floor(Math.random() * 10)
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
