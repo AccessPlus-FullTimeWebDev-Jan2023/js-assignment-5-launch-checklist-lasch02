@@ -2,12 +2,12 @@
 require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
-missionTarget = document.getElementById("missonTarget");
+let missionTarget = document.getElementById("missonTarget");
 
     // for(let i = 0; i < json.length; i++) {
     // let planet = json[i];
 
-    missionTarget.innerHTML += 
+    missionTarget.innerHTML = 
                  `<h2>Mission Destination</h2>
                   <ol>
                   <li>Name: ${name}</li>

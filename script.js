@@ -1,7 +1,7 @@
 // Write your JavaScript code here!
 //***********Somewhere on this page, I need to call formSubmission() function!!!****************
 
-const { pickPlanet, addDestinationInfo } = require("./scriptHelper");
+// const { pickPlanet, addDestinationInfo } = require("./scriptHelper");
 
 window.addEventListener("load", function() {
 
@@ -15,18 +15,17 @@ window.addEventListener("load", function() {
        console.log(listedPlanets);
        // Below this comment call the appropriate helper functions to pick a planet from the list of planets and add that information to your destination.
     let planet = pickPlanet(listedPlanets);
-    addDestinationInfo(document, planet.name, planet.diameter, planet.star, planet.distance, plantet.moons, planet.image)
+    addDestinationInfo(document, planet.name, planet.diameter, planet.star, planet.distance, planet.moons, planet.image)
    })
    
-   let form = document.querySelector("launchForm");
+   let form = document.querySelector("form");
    form.addEventListener("submit", function(event) {
    event.preventDefault();
 
-   pilotNameInput = form.pilotName['pilotName'];
-   
-   copilotNameInput = form.copilotName['copilotName'];
-   fuelLevelInput = form.fuelLevel['fuelLevel'];
-   cargoMassInput = form.cargoMass['cargoMass'];
+   let pilotNameInput = document.querySelector("input[name=pilotName]");
+   let copilotNameInput = document.querySelector("input[name=copilotName]");
+   let fuelLevelInput = document.querySelector("input[name=fuelLevel]");
+   let cargoMassInput = document.querySelector("input[name=cargoMass]");
    
     });
 
