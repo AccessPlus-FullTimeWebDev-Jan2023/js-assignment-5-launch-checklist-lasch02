@@ -1,6 +1,8 @@
 // Write your JavaScript code here!
 //***********Somewhere on this page, I need to call formSubmission() function!!!****************
 
+// const { formSubmission } = require("./scriptHelper");
+
 // const { pickPlanet, addDestinationInfo } = require("./scriptHelper");
 
 window.addEventListener("load", function() {
@@ -27,6 +29,8 @@ window.addEventListener("load", function() {
    let fuelLevelInput = document.querySelector("input[name=fuelLevel]");
    let cargoMassInput = document.querySelector("input[name=cargoMass]");
    
+formSubmission(document, list, pilotNameInput, copilotNameInput, fuelLevelInput, cargoMassInput)
+
     });
 
 
