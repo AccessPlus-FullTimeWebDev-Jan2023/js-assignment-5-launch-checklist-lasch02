@@ -46,7 +46,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         alert ("Invalid Input - Please Enter a Number")
     } else {
         pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
-        copilotStatus.innerHTML = `Copilot ${copilot} is ready for launch`;
+        copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
         list.style.visibility = "visible";
         if (fuelLevel < 10000 && cargoLevel > 10000) {
             fuelStatus.innerHTML = `Fuel level too low for launch`;
@@ -60,7 +60,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
             launchStatus.style.color = "#419F6A"; //green
         } else if (fuelLevel > 10000 && cargoLevel > 10000) {
             fuelStatus.innerHTML = `Fuel level high enough for launch`;
-            launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
+            launchStatus.innerHTML = `Shuttle is Ready for Launch`;
             cargoStatus.innerHTML = `Cargo mass too heavy for launch`;
             launchStatus.style.color = "#C7254E"; //red
         } else if (fuelLevel < 10000 && cargoLevel < 10000) {
