@@ -3,17 +3,26 @@ require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div. review the comments in addDestinationInfo(). This is the format of the innerHTML for the missionTarget div, which you can locate using the document parameter of addDestinationInfo(). addDestinationInfo() does not need to return anything
-   /*
-                <h2>Mission Destination</h2>
-                <ol>
-                    <li>Name: </li>
-                    <li>Diameter: </li>
-                    <li>Star: ${star}</li>
-                    <li>Distance from Earth: </li>
-                    <li>Number of Moons: </li>
-                </ol>
-                <img src="">
-   */
+ //                 <h2>Mission Destination</h2>
+//                 <ol>
+//                     <li>Name: </li>
+//                     <li>Diameter: </li>
+//                     <li>Star: ${star}</li>
+//                     <li>Distance from Earth: </li>
+//                     <li>Number of Moons: </li>
+//                 </ol>
+//                 <img src="">
+//    */
+let missionTarget = document.getElementById("missionTarget");
+planetName = name.innerHTML;
+planetDiameter = diameter.innerHTML;
+planetStar = star.innerHTML;
+planetDistance = distance.innerHTML;
+numberOfMoons = moons.innerHTML;
+// imageUrl
+
+
+
 }
 //the pilot and co-pilot names should be strings and the fuel level and cargo mass should be numbers. To do this, complete the helper function in your scriptHelper.js called validateInput(). validateInput() should take in a string as a parameter and return "Empty", "Not a Number", or "Is a Number" as appropriate. Note: JavaScript has a built-in method called isNaN(value) that returns true if value is NaN and false if value is not NaN.
 function validateInput(testInput) {
@@ -45,44 +54,36 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         list.style.visibility = "visible";
         if (fuelLevel < 10000 && cargoLevel > 10000) {
             fuelStatus.innerHTML = `Fuel level too low for launch`;
-            launchStatus.innerHTML = `Shuttle Not Ready for launch`;
+            launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
             cargoStatus.innerHTML = `Cargo mass too heavy for launch`;
             launchStatus.style.color = "#C7254E"; //red
+        } else if (fuelLevel > 10000 && cargoLevel < 10000) {
+            fuelStatus.innerHTML = `Fuel level high enough for launch`;
+            launchStatus.innerHTML = `Shuttle is Ready for Launch`;
+            cargoStatus.innerHTML = `Cargo mass low enough for launch`;
+            launchStatus.style.color = "#419F6A"; //green
+        } else if (fuelLevel > 10000 && cargoLevel > 10000) {
+            fuelStatus.innerHTML = `Fuel level high enough for launch`;
+            launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
+            cargoStatus.innerHTML = `Cargo mass too heavy for launch`;
+            launchStatus.style.color = "#C7254E"; //red
+        } else if (fuelLevel < 10000 && cargoLevel < 10000) {
+            fuelStatus.innerHTML = `Fuel level too low for launch`;
+            launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
+            cargoStatus.innerHTML = `Cargo mass low enough for launch`;
+            launchStatus.style.color = "#C7254E"; //red
         }
-
-
-
     }
-
-
-
-        
-        // {`Pilot ${pilotName} status: ${pilotReady}.`} 
-        // {`Copilot ${copilotName} status: ${copilotReady}.`}
-        // If (fuelLevel < 10000) {
-        //     `${fuelLevel} too low for launch`;
-        // } else if (fuelLevel >= 10000 ) {
-        //     ${fuelStatus}
-        // }
-
-            
-        
-
-      
-   
-   
-   
-
-
-
-    
 }
 
 //myFetch() has some of the code necessary for fetching planetary JSON, however, it is not complete. You need to add the URL and return response.json().
 async function myFetch() {
     let planetsReturned;
 
-    planetsReturned = await fetch().then( function(response) {
+    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+        response.json().then(function(json){
+
+        });
         });
 
     return planetsReturned;
